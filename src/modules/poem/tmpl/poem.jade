@@ -1,0 +1,13 @@
+.default-container.poem-container
+  div.text-center
+    button.btn.btn-default.btn-sm(ng-class="english", ng-click="setLang('en_US');english='active';bangla=''", ng-init="setLang('en_US');english='active';bangla=''") English
+    button.btn.btn-default.btn-sm(ng-class="bangla", ng-click="setLang('bn_BD');bangla='active';english=''") Bangla
+  br
+  h4.text-center
+    u(translate="homepage.static.title")
+    br
+    small(translate="homepage.static.note")
+  br
+  p.text-center(translate="homepage.static.poem")
+  br
+  h5.text-center(translate="homepage.static.poet")

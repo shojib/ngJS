@@ -1,0 +1,147 @@
+
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+
+@font-face {
+  font-family: "Sharifa";
+  src: url("../fonts/Sharifa.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+$color: #555;
+$mainColor: #428bca;
+$body-bg-color: #D8D8D8;
+$view-bg-color: #F1F1F1;
+$font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+$hoverColor: #428bca;
+$banga-font-family: 'Sharifa';
+
+body {
+  background-color: $body-bg-color;
+}
+
+a {
+  text-decoration: none !important;
+  color: $mainColor;
+  &:hover {
+    color: blue !important;
+  }
+}
+
+.container {
+  position: relative;
+  width: 700px;
+  padding: 0px 70px;
+  color: $color;
+  font-family: $font-family; 
+
+  h3, h5 {
+    font-weight: bold;
+  }
+
+  .media-group {
+    padding-left: 0;
+  }
+
+  ui-view {
+    position: relative;
+    display: block;
+  }
+
+  .default-container {
+    min-height: 300px;
+    padding: 50px;
+    margin-bottom: 20px;
+    background-color: $view-bg-color;
+    @include border-radius(3px);
+    @include box-shadow(#aaa 0px 0px 3px);
+  }
+
+  .poem-container {
+    font-size: 15px;
+
+    h4 {
+      small .cus-font {
+        font-size: 16px;
+      }
+    }
+
+    .poem {
+      font-size: 20px;
+    }
+
+    h4 .cus-font {
+      font-size: 25px;
+    }
+
+    h5 .cus-font {
+      font-size: 18px;
+    }
+
+    .cus-font {
+      font-family: $banga-font-family;
+    }
+  }
+
+  .page-header {
+    overflow: hidden;
+    border-bottom: 0;
+    .back {
+      display: block;
+      padding-top: 27px;
+    }
+  }
+
+}
+
+
+.hex-wrapper {
+  float: left; 
+  width: 100%;
+  height: 350px;
+
+  .hex {
+      float: left;
+      margin-left: 3px;
+      margin-bottom: -26px;
+    
+    .top {
+        width: 0;
+        border-bottom: 30px solid #6C6;
+        border-left: 52px solid transparent;
+        border-right: 52px solid transparent;
+    }
+    .middle {
+        width: 104px;
+        height: 60px;
+        background: #6C6;
+
+        .link {
+          line-height: 3.5;
+          font-size: 17px;
+          color: white;
+        }
+    }
+    .bottom {
+        width: 0;
+        border-top: 30px solid #6C6;
+        border-left: 52px solid transparent;
+        border-right: 52px solid transparent;
+    }
+
+  }
+
+  .hex-row {
+        clear: left;
+        
+        &.even {
+          margin-left: 53px;
+        }
+    }
+
+}
+
+
+
+

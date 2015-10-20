@@ -1,0 +1,48 @@
+.repeat-item.ng-enter,
+.repeat-item.ng-leave {
+  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+}
+
+.repeat-item.ng-enter,
+.repeat-item.ng-leave.ng-leave-active {
+  -webkit-transform: rotateX(-180deg) translatez(30px);
+  -moz-transform: rotateX(-180deg) translatez(30px);
+  -ms-transform: rotateX(-180deg) translatez(30px);
+  -o-transform: rotateX(-180deg) translatez(30px);
+  transform: rotateX(-180deg) translatez(30px);
+  opacity: 0;
+  height: 0px;
+}
+
+.repeat-item.ng-leave,
+.repeat-item.ng-enter.ng-enter-active {
+  -webkit-transform: rotateX(0deg) translatez(30px);
+  -moz-transform: rotateX(0deg) translatez(30px);
+  -ms-transform: rotateX(0deg) translatez(30px);
+  -o-transform: rotateX(0deg) translatez(30px);
+  transform: rotateX(0deg) translatez(30px);
+  opacity: 1;
+  height: 30px;
+}
+
+.slide-reveal.ng-enter {
+  -webkit-animation: enter_sequence .20s linear; 
+  animation: enter_sequence .20s linear; 
+  position: relative;
+}
+
+@-webkit-keyframes enter_sequence {
+  from { opacity: 0; left: -10px; top: -10px; }
+  to { opacity: 1; left: 0px; top: 0px; }
+}
+
+@keyframes enter_sequence {
+  from { opacity: 0; left: -10px; top: -10px; }
+  to { opacity: 1; left: 0px; top: 0px; }
+}

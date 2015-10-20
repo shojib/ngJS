@@ -1,0 +1,25 @@
+.default-container
+  .col-lg
+    .col-lg
+      .input-group
+        input.form-control(type="text", ng-model="search_query", ng-keypress="find_articles($event)") 
+        .input-group-btn
+          button.btn.btn-default(ng-click="find_articles('')") Search
+    .col-sm
+      .input-group
+        input.form-control(type="text", ng-model="article_filter")    
+        .input-group-btn
+          button.btn.btn-default Filter
+
+  br
+  br
+
+  ul.media-group(ng-init="find_articles('')")
+    li.media.repeat-item(ng-repeat="article in articles.response.docs | filter: article_filter")
+      a.pull-right(href="{{article.web_url}}", ng-show="article.multimedia[0].url")
+        img.media-object(src="http://www.nytimes.com/{{article.multimedia[0].url}}")
+      .media-body
+        h4.media-heading 
+          a(href="{{article.web_url}}") {{ article.headline.main }}
+        p.media-text {{ article.lead_paragraph }}
+        small {{ article.pub_date | date: 'fullDate' }}
