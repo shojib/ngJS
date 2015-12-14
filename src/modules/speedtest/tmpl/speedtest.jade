@@ -1,0 +1,26 @@
+.default-container.ng-cloak
+
+  ul.nav.nav-tabs(role='tablist')
+    li(role='presentation', ng-class="{active:tab}")
+      a(href='#/speedtest/angularjs', aria-controls='angularjs', role='tab', data-toggle='tab') AngularJS
+    li(role='presentation', ng-class="{active:!tab}")
+      a(href='#/speedtest/reactjs', aria-controls='reactjs', role='tab', data-toggle='tab') ReactJS
+      
+  .tab-content
+    #angularjs.tab-pane(role='tabpanel', ng-class="{active:tab}")      
+      br
+      br
+      
+      button.btn.btn-primary(ng-click="startTimer()") Start 
+      button.btn.btn-danger(ng-click="stopTimer()") Stop
+      
+      br
+      br
+      
+      small
+        .row(ng-repeat="row in rows", ng-class="{active:!tab}")
+          .col-md-1.thumbnail.inline-center(ng-repeat="column in columns") {{ rnd[getRandomNumber(50)] }}
+      
+    #reactjs.tab-pane(role='tabpanel') ...
+  
+

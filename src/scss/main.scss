@@ -65,6 +65,11 @@ a {
     background-color: $view-bg-color;
     @include border-radius(3px);
     @include box-shadow(#aaa 0px 0px 3px);
+    
+  }
+  
+  .col-md-1 {
+    margin-bottom: 0;
   }
 
   .poem-container {
@@ -103,6 +108,8 @@ a {
   }
 
 }
+
+
 
 
 .hex-wrapper {
