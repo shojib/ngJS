@@ -108,6 +108,13 @@ module.exports = function(grunt) {
         options: {
           livereload: true
         }
+      },
+      compass: {
+        files: ['<%= pkg.folders.src %>/scss/main.scss', '<%= pkg.folders.src %>/modules/css/main.css'],
+        tasks: 'compass',
+        options: {
+          livereload: true
+        }
       }
     },
     

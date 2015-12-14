@@ -3,7 +3,8 @@ define([
   "common/main", 
   "home/main", 
   "poem/main", 
-  "article/main"], 
+  "article/main", 
+  "speedtest/main"], 
 
   function(angular) {
     "use strict";
@@ -16,7 +17,8 @@ define([
       "ngJS.common", 
       "ngJS.home", 
       "ngJS.poem", 
-      "ngJS.article"
+      "ngJS.article", 
+      "ngJS.speedtest"
     ]);
     
     ngJS.config([
