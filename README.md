@@ -9,7 +9,7 @@ ngJS is an AngularJS seed.
 + JS Task Runner: Grunt
 + Unit & E2E Test Frameworks: PhantomJS, Karma, Jasmine, Protractor
 
-## INSTALL
+## Install
 + Install NodeJS: <code>http://nodejs.org/</code>
 + Check to see if npm was installed: <code>npm -v</code>
 + Install sass: <code>npm install sass -g</code>
