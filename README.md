@@ -9,8 +9,7 @@ ngJS is an AngularJS seed.
 + JS Task Runner: Grunt
 + Unit & E2E Test Frameworks: PhantomJS, Karma, Jasmine, Protractor
 
-
-## Build
+## INSTALL
 + Install NodeJS: <code>http://nodejs.org/</code>
 + Check to see if npm was installed: <code>npm -v</code>
 + Install sass: <code>npm install sass -g</code>
@@ -18,6 +17,8 @@ ngJS is an AngularJS seed.
 + Install phantomjs: <code>npm install phantomjs -g</code>
 + Install bower: <code>npm install bower -g</code>
 + Install grunt-cli: <code>npm install grunt-cli -g</code>
+
+## Build
 + Install all dependencies: <code>npm install</code>
 + Install all JS libraries: <code>bower install</code>
 
