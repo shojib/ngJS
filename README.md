@@ -17,7 +17,7 @@ ngJS is an AngularJS seed.
 + Install phantomjs: <code>npm install phantomjs -g</code>
 + Install bower: <code>npm install bower -g</code>
 + Install grunt-cli: <code>npm install grunt-cli -g</code>
-+ 
+
 ## Dev Dependencies
 + Install phantomjs: <code>npm install phantomjs -g</code>
 
