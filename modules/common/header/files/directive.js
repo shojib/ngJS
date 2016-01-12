@@ -5,7 +5,7 @@ define([], function() {
     return {
       restrict: "E",
       replace: true,
-      templateUrl: "/modules/common/header/tmpl/header.html"
+      templateUrl: "./modules/common/header/tmpl/header.html"
     };
   };
 
