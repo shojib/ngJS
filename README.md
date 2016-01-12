@@ -1,4 +1,4 @@
-# ngJS v0.1
+# [ngJS v0.1](http://shojib.github.io/ngJS)
 
 ngJS is an AngularJS seed.
 
