@@ -7,7 +7,7 @@ define(["angular"], function(angular) {
     "$stateProvider", function(state_provider) {
       state_provider.state("home", {
         url: "/home",
-        templateUrl: "/modules/home/tmpl/home.html"
+        templateUrl: "./modules/home/tmpl/home.html"
       });
     }
   ]);

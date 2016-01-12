@@ -10,7 +10,7 @@ define(["angular", "article/files/factory", "article/files/service", "article/fi
           service: "service"
         },
         url: "/article",
-        templateUrl: "/modules/article/tmpl/article.html",
+        templateUrl: "./modules/article/tmpl/article.html",
         controller: controller
       });
     }

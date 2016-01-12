@@ -14,7 +14,7 @@ define([
     "$stateProvider", function(state_provider) {
       state_provider.state("speedtest", {
         url: "/speedtest/:uid",
-        templateUrl: "/modules/speedtest/tmpl/speedtest.html",
+        templateUrl: "./modules/speedtest/tmpl/speedtest.html",
         controller: controller
       });
     }

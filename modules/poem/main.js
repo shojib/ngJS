@@ -7,7 +7,7 @@ define(["angular", "poem/files/controller"], function(angular, controller) {
     "$stateProvider", function(state_provider) {
       return state_provider.state("poem", {
         url: "/poem",
-        templateUrl: "/modules/poem/tmpl/poem.html",
+        templateUrl: "./modules/poem/tmpl/poem.html",
         controller: controller
       });
     }
