@@ -9,11 +9,11 @@ define(["angular", "speedtest/files/angular_ctrl", "speedtest/files/react_ctrl"]
     "$stateProvider", function(state_provider) {
       state_provider.state("angularSpeedTest", {
         url: "/speedtest/angularjs",
-        templateUrl: "/modules/speedtest/tmpl/angular.html",
+        templateUrl: "./modules/speedtest/tmpl/angular.html",
         controller: angularCtrl
       }).state("reactSpeedTest", {
         url: "/speedtest/reactjs",
-        templateUrl: "/modules/speedtest/tmpl/react.html",
+        templateUrl: "./modules/speedtest/tmpl/react.html",
         controller: reactCtrl
       });
     }
