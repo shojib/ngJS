@@ -16,6 +16,7 @@ $view-bg-color: #F1F1F1;
 $font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
 $hoverColor: #428bca;
 $banga-font-family: 'Sharifa';
+$light-color: #ddd;
 
 body {
   background-color: $body-bg-color;
@@ -40,7 +41,7 @@ a {
 
 .container {
   position: relative;
-  width: 700px;
+  width: 1000px;
   padding: 0px 70px;
   color: $color;
   font-family: $font-family; 
@@ -67,9 +68,51 @@ a {
     @include box-shadow(#aaa 0px 0px 3px);
     
   }
+
+  .speed-table {
+    font-size: 9px;
+    font-weight: bold;
+  }
+
+  .thumbnail {
+    border: 0;
+    border-left: 1px solid $light-color;
+    border-top: 1px solid $light-color;
+  }
+  
+  .thumbnail:last-child {
+    border-right: 1px solid $light-color;
+  }
+
+  .row {
+      margin-left: 0; 
+      margin-right: 0; 
+  }
+  
+  .row:last-child .thumbnail {
+    border-bottom: 1px solid $light-color;
+  }
+
+  #table1, #table2, #table3, #table4 {
+    zoom: 25%;
+    display: inline-block;
+    border-top: 1px solid lightgray;
+
+    .thumbnail {
+      border: 0;
+      border-left: 1px solid lightgray;
+      border-bottom: 1px solid lightgray;
+    }
+  }
+
+  #table4 {
+      border-right: 1px solid lightgray;
+  }
   
   .col-md-1 {
     margin-bottom: 0;
+    width: 24px;
+    height: 22px;
   }
 
   .poem-container {
@@ -108,56 +151,3 @@ a {
   }
 
 }
-
-
-
-
-.hex-wrapper {
-  float: left; 
-  width: 100%;
-  height: 350px;
-
-  .hex {
-      float: left;
-      margin-left: 3px;
-      margin-bottom: -26px;
-    
-    .top {
-        width: 0;
-        border-bottom: 30px solid #6C6;
-        border-left: 52px solid transparent;
-        border-right: 52px solid transparent;
-    }
-    .middle {
-        width: 104px;
-        height: 60px;
-        background: #6C6;
-
-        .link {
-          line-height: 3.5;
-          font-size: 17px;
-          color: white;
-        }
-    }
-    .bottom {
-        width: 0;
-        border-top: 30px solid #6C6;
-        border-left: 52px solid transparent;
-        border-right: 52px solid transparent;
-    }
-
-  }
-
-  .hex-row {
-        clear: left;
-        
-        &.even {
-          margin-left: 53px;
-        }
-    }
-
-}
-
-
-
-

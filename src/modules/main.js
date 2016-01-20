@@ -1,6 +1,7 @@
 requirejs.config({
   paths: {
     angular: "../libs/angular/angular",
+    react: "../libs/react/react",
     ngCookies: "../libs/angular-cookies/angular-cookies",
     ngTranslate: "../libs/angular-translate/angular-translate",
     ngSanitize: "../libs/angular-sanitize/angular-sanitize",
@@ -16,6 +17,10 @@ requirejs.config({
   shim: {
     angular: {
       exports: "angular"
+    },
+    react: {
+      deps: ["angular"],
+      exports: "react"
     },
     ngResource: {
       deps: ["angular"],

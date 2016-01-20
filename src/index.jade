@@ -14,13 +14,13 @@ html(xmlns:ng='', id='ng-app')
 
     body.ng-cloak
         
-        .container
+        .container#container
 
             //- Main header
             ngjs-header
 
             //- Main view
-            ui-view.slide-reveal(autoscroll="false")
+            ui-view.slide-reveal#view(autoscroll="false")
 
             //- Footer
             ngjs-footer

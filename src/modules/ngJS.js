@@ -1,5 +1,6 @@
 define([
   "angular", 
+  "react",
   "common/main", 
   "home/main", 
   "poem/main", 

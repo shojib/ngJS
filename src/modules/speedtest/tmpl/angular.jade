@@ -1,0 +1,36 @@
+.default-container.ng-cloak
+
+  ul.nav.nav-tabs(role='tablist')
+    li(role='presentation', class="active")
+      a(href='#/speedtest/angularjs') AngularJS
+    li(role='presentation')
+      a(href='#/speedtest/reactjs') ReactJS
+      
+  br
+  .tab-content   
+      button.btn.btn-primary(ng-click="startTimer()") Start 
+      |  
+      button.btn.btn-danger(ng-click="stopTimer()") Stop
+      
+      br
+      br
+      div.speed-table#table1
+        .row(ng-repeat="row in rows track by $index")
+          .col-md-1.thumbnail.inline-center(ng-repeat="column in columns", style="background-color:rgba({{rgba1[column][row]}},{{rgba2[column][row]}},{{rgba3[column][row]}},1)")
+      
+      div.speed-table#table2
+        .row(ng-repeat="row in rows track by $index")
+          .col-md-1.thumbnail.inline-center(ng-repeat="column in columns", style="background-color:rgba({{rgba1[column][row]}},{{rgba2[column][row]}},{{rgba3[column][row]}},1)")
+      
+      div.speed-table#table3
+        .row(ng-repeat="row in rows track by $index")
+          .col-md-1.thumbnail.inline-center(ng-repeat="column in columns", style="background-color:rgba({{rgba1[column][row]}},{{rgba2[column][row]}},{{rgba3[column][row]}},1)")
+      
+      div.speed-table#table4
+        .row(ng-repeat="row in rows track by $index")
+          .col-md-1.thumbnail.inline-center(ng-repeat="column in columns", style="background-color:rgba({{rgba1[column][row]}},{{rgba2[column][row]}},{{rgba3[column][row]}},1)")
+      
+      div.speed-table#table5
+        .row(ng-repeat="row in rows track by $index")
+          .col-md-1.thumbnail.inline-center(ng-repeat="column in columns", style="background-color:rgba({{rgba1[column][row]}},{{rgba2[column][row]}},{{rgba3[column][row]}},1)")
+            div(ng-bind="cell[column][row]")
