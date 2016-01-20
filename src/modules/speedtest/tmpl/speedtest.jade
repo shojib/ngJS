@@ -18,8 +18,8 @@
       br
       
       small
-        .row(ng-repeat="row in rows", ng-class="{active:!tab}")
-          .col-md-1.thumbnail.inline-center(ng-repeat="column in columns") {{ rnd[getRandomNumber(50)] }}
+        .row(ng-repeat="row in rows track by $index", ng-class="{active:!tab}")
+          .col-md-1.thumbnail.inline-center(ng-repeat="column in columns", ng-bind="cell[column][row]")
       
     #reactjs.tab-pane(role='tabpanel') ...
   
