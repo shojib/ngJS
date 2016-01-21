@@ -1,4 +1,4 @@
-.default-container.ng-cloak
+.default-container
 
   ul.nav.nav-tabs(role='tablist')
     li(role='presentation')
@@ -15,6 +15,4 @@
       br
       br
       
-      small
-        .row(ng-repeat="row in rows track by $index")
-          .col-md-1.thumbnail.inline-center(ng-repeat="column in columns", ng-bind="cell[column][row]")
+      small#react

@@ -3,7 +3,7 @@ define(["angular", "speedtest/files/angular_ctrl", "speedtest/files/react_ctrl"]
   
   "use strict";
   
-  var SpeedTest = angular.module("ngJS.speedtest", ["ui.router", "ngAnimate"]);
+  var SpeedTest = angular.module("ngJS.speedtest", ["ui.router", "ngAnimate",]);
   
   SpeedTest.config([
     "$stateProvider", function(state_provider) {

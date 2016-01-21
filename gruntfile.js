@@ -20,12 +20,12 @@ module.exports = function(grunt) {
         src: '*',
         dest: '<%= pkg.folders.build %>/i18n'
       },
-      js: {
-        expand: true,
-        cwd: 'src/modules/',
-        src: '**/*.js',
-        dest: 'public/modules'
-      },
+      // js: {
+      //   expand: true,
+      //   cwd: 'src/modules/',
+      //   src: '**/*.js',
+      //   dest: 'public/modules'
+      // },
       libs: {
         expand: true,
         cwd: '<%= pkg.folders.src %>/libs/',
@@ -55,16 +55,30 @@ module.exports = function(grunt) {
       }
     },
 
-    javascript: {
-      compile_all: {
-        expand: true,
-        flatten: false,
-        cwd: '<%= pkg.folders.entity_src %>',
-        src: ['**/*.js'],
-        dest: '<%= pkg.folders.entity_build %>',
-        ext: '.js'
+    react: {
+      dynamic_mappings: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= pkg.folders.entity_src %>',
+            src: ['**/*.js'],
+            dest: '<%= pkg.folders.entity_build %>',
+            ext: '.js'
+          }
+        ]
       }
     },
+
+    // javascript: {
+    //   compile_all: {
+    //     expand: true,
+    //     flatten: false,
+    //     cwd: '<%= pkg.folders.entity_src %>',
+    //     src: ['**/*.js'],
+    //     dest: '<%= pkg.folders.entity_build %>',
+    //     ext: '.js'
+    //   }
+    // },
 
     jade: {
       compile: {
@@ -95,13 +109,20 @@ module.exports = function(grunt) {
 
 
     watch: {
-      js: {
+      react: {
         files: ['<%= pkg.folders.src %>/modules/**/*.js'],
-        tasks: 'copy:js',
+        tasks: 'react',
         options: {
           livereload: true
         }
-      },
+      }, 
+      // js: {
+      //   files: ['<%= pkg.folders.src %>/modules/**/*.js'],
+      //   tasks: 'copy:js',
+      //   options: {
+      //     livereload: true
+      //   }
+      // },
       jade: {
         files: ['<%= pkg.folders.src %>/*.jade', '<%= pkg.folders.src %>/modules/**/*.jade'],
         tasks: 'jade',
@@ -176,6 +197,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-selenium-webdriver');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-react');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Unit task(s).
@@ -203,7 +225,8 @@ module.exports = function(grunt) {
     'clean', 
     'copy', 
     'jade', 
-    'compass'
+    'compass',
+    'react'
   ]);
   
   // Build task(s).
