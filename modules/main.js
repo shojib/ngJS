@@ -2,6 +2,7 @@ requirejs.config({
   paths: {
     angular: "../libs/angular/angular",
     react: "../libs/react/react",
+    reactDom: "../libs/react/react-dom",
     ngCookies: "../libs/angular-cookies/angular-cookies",
     ngTranslate: "../libs/angular-translate/angular-translate",
     ngSanitize: "../libs/angular-sanitize/angular-sanitize",
@@ -18,13 +19,15 @@ requirejs.config({
     angular: {
       exports: "angular"
     },
+    react: {
+      exports: "react"
+    },
+    reactDom: {
+      exports: "reactDom"
+    },
     ngResource: {
       deps: ["angular"],
       exports: "ngResource"
-    },
-    react: {
-      deps: ["angular"],
-      exports: "react"
     },
     ngAnimate: {
       deps: ["angular"],
@@ -68,8 +71,8 @@ requirejs.config({
 
 requirejs([
   "angular", 
-  "ngJS", 
   "react",
+  "reactDom",
   "ngAnimate", 
   "ngTranslate", 
   "ngSanitize",
@@ -79,11 +82,16 @@ requirejs([
   "ngTranslateStorageLocal", 
   "ngCookies", 
   "ngResource", 
-  "uiRouter"], 
+  "uiRouter",
+  "ngJS"], 
 
-  function(angular, ngJS) {
-    "use strict";
-    angular.bootstrap(document, [ngJS["name"]]);
+  function(angular, react, reactDom,
+    ngAnimate, ngTranslate, ngSanitize, 
+    ngTranslateLoader, ngTranslateLoaderStaticFile, ngTranslateStorageCookie,
+    ngTranslateStorageLocal, ngCookies, ngResource, 
+    uiRouter, ngJS) {
+      "use strict";
+      angular.bootstrap(document, [ngJS["name"]]);
 });
 
 
