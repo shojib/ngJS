@@ -1,9 +1,9 @@
 requirejs.config({
   paths: {
-    angular: "../libs/angular/angular",
-    react: "../libs/react/react",
-    reactDom: "../libs/react/react-dom",
-    reactAddons: "../libs/react/react-with-addons",
+    angular: "../libs/angular/angular.min",
+    react: "../libs/react/react.min",
+    reactDom: "../libs/react/react-dom.min",
+    reactAddons: "../libs/react/react-with-addons.min",
     ngCookies: "../libs/angular-cookies/angular-cookies",
     ngTranslate: "../libs/angular-translate/angular-translate",
     ngSanitize: "../libs/angular-sanitize/angular-sanitize",
