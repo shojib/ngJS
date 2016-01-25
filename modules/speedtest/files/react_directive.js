@@ -80,7 +80,7 @@ define(['react', 'reactDom', 'reactAddons'], function(React, ReactDOM, Perf) {
     render: function() {
       var column = [];
       for (var i = 0; i < this.context.columns; i++) {
-        column.push(React.createElement(Cell, null));
+        column.push(React.createElement(Cell, {key: i}));
       }
       return React.createElement("div", {className: "row"}, column)
     }
@@ -93,7 +93,7 @@ define(['react', 'reactDom', 'reactAddons'], function(React, ReactDOM, Perf) {
     render: function() {
       var row = [];
       for (var i = 0; i < this.props.rows; i++) {
-        row.push(React.createElement(Column, {id: i}));
+        row.push(React.createElement(Column, {id: i, key: i}));
       }
       return React.createElement("div", null, row)
     }
@@ -214,8 +214,17 @@ define(['react', 'reactDom', 'reactAddons'], function(React, ReactDOM, Perf) {
       restrict: "E",
       link: function() {
 
-        // window.perf = Perf.addons.Perf;
-        // window.react = React;
+        // var perf = Perf.addons.Perf;
+        // window.perf = perf;
+        // perf.start();
+        // perf.stop();
+        // var measurements = perf.getLastMeasurements();
+        // console.table(perf.getLastMeasurements());
+        // console.table(perf.printWasted());
+        // perf.printInclusive(measurements);
+        // perf.printExclusive(measurements);
+        // perf.printWasted(measurements);
+        // perf.printDOM(measurements);
 
         if (stateParams.version === "1") {
           ReactDOM.render(
