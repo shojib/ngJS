@@ -1,21 +1,29 @@
 define(['react', 'reactDom', 'reactAddons'], function(React, ReactDOM, ReactAddons) {
   "use strict";
   
-  
-var CommonMixins = {
-columns: 31,
-rows: 51,
-rgba: 255,
-  create2DArray: function(num) {
+  var columns = 31, rows = 51;
+var create2DArray = function(num) {
     var obj = [];
     for (var i = 0; i < num; i++) {
       obj[i] = [];
     }
     return obj;
-  },
-  getRandomNumber: function(num) {
+  };
+  
+  var getRandomNumber = function(num) {
     return Math.floor((Math.random() * num) + 0);
-  }
+  };
+
+var CommonMixins = {
+columns: columns,
+rows: rows,
+rgba: 255,
+      rgba1: create2DArray(columns),
+      rgba2: create2DArray(columns),
+      rgba3: create2DArray(columns),
+      cells: create2DArray(columns),
+  create2DArray: create2DArray,
+  getRandomNumber: getRandomNumber
 };
 
 var Cell = React.createClass({
@@ -23,11 +31,7 @@ var Cell = React.createClass({
   getInitialState: function() {
     return {
       rndX: 0,
-      rndY: 0,
-      rgba1: this.create2DArray(this.columns),
-      rgba2: this.create2DArray(this.columns),
-      rgba3: this.create2DArray(this.columns),
-      cells: this.create2DArray(this.columns)
+      rndY: 0
     }
   },
   render: function() {
@@ -36,18 +40,18 @@ var Cell = React.createClass({
     var rndX = this.getRandomNumber(this.columns);
     var rndY = this.getRandomNumber(this.rows);
     
-    this.state.cells[rndX][rndY] = this.props.values.rndNum;    
-    this.state.rgba1[rndX][rndY] = this.props.values.rgba1Val;
-    this.state.rgba2[rndX][rndY] = this.props.values.rgba2Val;
-    this.state.rgba3[rndX][rndY] = this.props.values.rgba3Val;
+    this.cells[rndX][rndY] = this.props.values.rndNum;    
+    this.rgba1[rndX][rndY] = this.props.values.rgba1Val;
+    this.rgba2[rndX][rndY] = this.props.values.rgba2Val;
+    this.rgba3[rndX][rndY] = this.props.values.rgba3Val;
     
     var style = {
-      backgroundColor: "rgba(" + this.state.rgba1[x][y] + "," + this.state.rgba2[x][y] + "," + this.state.rgba3[x][y] + "," + 1 + ")"
+      backgroundColor: "rgba(" + this.rgba1[x][y] + "," + this.rgba2[x][y] + "," + this.rgba3[x][y] + "," + 1 + ")"
     };
       
     return (
     <div className="col-md-1 thumbnail inline-center" style={style}>
-      <div>{this.state.cells[x][y]}</div>
+      <div>{this.cells[x][y]}</div>
       </div>
     )
   }
