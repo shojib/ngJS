@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       libs: {
         expand: true,
         cwd: '<%= pkg.folders.src %>/libs/',
-        src: '**/*',
+        src: '**/*.js',
         dest: '<%= pkg.folders.build %>/libs'
       }
     },
@@ -226,8 +226,7 @@ module.exports = function(grunt) {
   // Build task(s).
   grunt.registerTask('prod', [
     'compile', 
-    'requirejs',
-    'tests'
+    'requirejs'
   ]);
   
   // Build task(s).

@@ -48,8 +48,8 @@ define([
         urlRouterProvider.when("", "/home");
         urlRouterProvider.otherwise("/error/404");
 
-        logProvider.debugEnabled(true);
-        compileProvider.debugInfoEnabled(true);
+        logProvider.debugEnabled(false);
+        compileProvider.debugInfoEnabled(false);
         httpProvider.useApplyAsync(true);
       }
     ]);
