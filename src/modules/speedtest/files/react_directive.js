@@ -1,4 +1,4 @@
-define(['react', 'reactDom', 'reactAddons'], function(React, ReactDOM, Perf) {
+define(['react', 'reactDom', 'reactAddons'], function(React, ReactDOM, ReactAddons) {
   "use strict";
   
   
@@ -19,7 +19,7 @@ rgba: 255,
 };
 
 var Cell = React.createClass({
-  mixins: [CommonMixins],
+  mixins: [CommonMixins, ReactAddons.addons.PureRenderMixin],
   getInitialState: function() {
     return {
       rndX: 0,
@@ -54,9 +54,7 @@ var Cell = React.createClass({
 });
 
 var Column = React.createClass({
-  shouldComponentUpdate: function(nextProps, nextState) {
-    return (this.props.columns !== nextProps.columns || this.props.values !== nextProps.values);
-  },
+  mixins: [ReactAddons.addons.PureRenderMixin],
   render: function() {
     var column = [];
     for (var i = 0; i < this.props.columns; i++) {
@@ -67,9 +65,7 @@ var Column = React.createClass({
 });
 
 var Row = React.createClass({
-  shouldComponentUpdate: function(nextProps, nextState) {
-    return (this.props.columns !== nextProps.columns || this.props.values !== nextProps.values);
-  },
+  mixins: [ReactAddons.addons.PureRenderMixin],
   render: function() {
     var row = [];
     for (var i = 0; i < this.props.rows; i++) {
@@ -80,18 +76,14 @@ var Row = React.createClass({
 });
 
 var Grid = React.createClass({
-  shouldComponentUpdate: function(nextProps, nextState) {
-    return (this.props.rows !== nextProps.rows || this.props.columns !== nextProps.columns || this.props.values !== nextProps.values);
-  },
+  mixins: [ReactAddons.addons.PureRenderMixin],
   render: function() {
     return (<div><Row rows={this.props.rows} columns={this.props.columns} values={this.props.values} /></div>)
   }
 });
 
 var Buttons = React.createClass({
-  shouldComponentUpdate: function(nextProps, nextState) {
-    return (this.props.isInterval !== nextProps.isInterval || this.props.start !== nextProps.start || this.props.stop !== nextProps.stop);
-  },
+  mixins: [ReactAddons.addons.PureRenderMixin],
   render: function() {
   console.log(this.props.isInterval);
     return (
@@ -135,20 +127,11 @@ var GridMixins = {
     this.setState({
       isInterval: false
     });
-  },
-  shouldComponentUpdate: function(nextProps, nextState) {
-    var values = (this.state.values.rndNum !== nextState.values.rndNum || 
-      this.state.values.rndNum !== nextState.values.rndNum ||
-      this.state.values.rgba1Val !== nextState.values.rgba1Val ||
-      this.state.values.rgba2Val !== nextState.values.rgba2Val ||
-      this.state.values.rgba3Val !== nextState.values.rgba3Val || 
-      this.state.isInterval !== nextState.isInterval);
-    return values;
   }
 };
 
 var GridWrapper1 = React.createClass({
-  mixins: [CommonMixins, GridMixins],
+  mixins: [CommonMixins, GridMixins, ReactAddons.addons.PureRenderMixin],
   render: function() {    
     return (
         <div>
@@ -160,7 +143,7 @@ var GridWrapper1 = React.createClass({
 });
 
   var GridWrapper2 = React.createClass({
-    mixins: [CommonMixins, GridMixins],
+    mixins: [CommonMixins, GridMixins, ReactAddons.addons.PureRenderMixin],
     render: function() {
       return (
         <div>
