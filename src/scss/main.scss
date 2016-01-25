@@ -93,20 +93,20 @@ a {
     border-bottom: 1px solid $light-color;
   }
 
-  #table1, #table2, #table3, #table4 {
+  .small-grid {
     zoom: 25%;
     display: inline-block;
     border-top: 1px solid lightgray;
+
+    &:last-child {
+      border-right: 1px solid lightgray;
+    }
 
     .thumbnail {
       border: 0;
       border-left: 1px solid lightgray;
       border-bottom: 1px solid lightgray;
     }
-  }
-
-  #table4 {
-      border-right: 1px solid lightgray;
   }
   
   .col-md-1 {

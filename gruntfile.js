@@ -20,12 +20,6 @@ module.exports = function(grunt) {
         src: '*',
         dest: '<%= pkg.folders.build %>/i18n'
       },
-      // js: {
-      //   expand: true,
-      //   cwd: 'src/modules/',
-      //   src: '**/*.js',
-      //   dest: 'public/modules'
-      // },
       libs: {
         expand: true,
         cwd: '<%= pkg.folders.src %>/libs/',

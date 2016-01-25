@@ -22,6 +22,8 @@
     "karma-phantomjs-launcher": "~0.1.2",
     "karma-requirejs": "~0.2.1",
     "plato": "^1.0.1",
+    "react": "^0.14.6",
+    "react-addons-perf": "^0.14.6",
     "requirejs": "~2.1.11"
   },
   "keywords": [

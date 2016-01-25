@@ -1,26 +1,25 @@
-define(["angular", "speedtest/files/angular_ctrl", "speedtest/files/react_ctrl"], 
-  function(angular, angularCtrl, reactCtrl) {
+define(["angular", "speedtest/files/angular_service", "speedtest/files/angular_directive", "speedtest/files/react_directive"], 
+  function(angular, angularService, angularDirective, reactDirective) {
   
   "use strict";
   
-  var SpeedTest = angular.module("ngJS.speedtest", ["ui.router", "ngAnimate",]);
+  var SpeedTest = angular.module("ngJS.speedtest", ["ui.router", "ngAnimate"]);
   
   SpeedTest.config([
     "$stateProvider", function(state_provider) {
       state_provider.state("angularSpeedTest", {
-        url: "/speedtest/angularjs",
-        templateUrl: "/modules/speedtest/tmpl/angular.html",
-        controller: angularCtrl
+        url: "/speedtest/angular/:version",
+        templateUrl: "./modules/speedtest/tmpl/angular.html"
       }).state("reactSpeedTest", {
-        url: "/speedtest/reactjs",
-        templateUrl: "/modules/speedtest/tmpl/react.html",
-        controller: reactCtrl
+        url: "/speedtest/react/:version",
+        templateUrl: "./modules/speedtest/tmpl/react.html"
       });
     }
   ]);
 
-  SpeedTest.controller("angularCtrl", angularCtrl);
-  SpeedTest.controller("reactCtrl", reactCtrl);
+  SpeedTest.service("AngularService", angularService);
+  SpeedTest.directive("angularWidget", angularDirective);
+  SpeedTest.directive("reactWidget", reactDirective);
 
   return SpeedTest;
 

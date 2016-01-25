@@ -3,6 +3,7 @@ requirejs.config({
     angular: "../libs/angular/angular",
     react: "../libs/react/react",
     reactDom: "../libs/react/react-dom",
+    reactAddons: "../libs/react/react-with-addons",
     ngCookies: "../libs/angular-cookies/angular-cookies",
     ngTranslate: "../libs/angular-translate/angular-translate",
     ngSanitize: "../libs/angular-sanitize/angular-sanitize",
@@ -24,6 +25,9 @@ requirejs.config({
     },
     reactDom: {
       exports: "reactDom"
+    },
+    reactAddons: {
+      exports: "reactAddons"
     },
     ngResource: {
       deps: ["angular"],
@@ -73,6 +77,7 @@ requirejs([
   "angular", 
   "react",
   "reactDom",
+  "reactAddons",
   "ngAnimate", 
   "ngTranslate", 
   "ngSanitize",
@@ -85,7 +90,7 @@ requirejs([
   "uiRouter",
   "ngJS"], 
 
-  function(angular, react, reactDom,
+  function(angular, react, reactDom, reactAddons,
     ngAnimate, ngTranslate, ngSanitize, 
     ngTranslateLoader, ngTranslateLoaderStaticFile, ngTranslateStorageCookie,
     ngTranslateStorageLocal, ngCookies, ngResource, 

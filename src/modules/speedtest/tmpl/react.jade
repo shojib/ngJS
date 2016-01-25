@@ -2,20 +2,15 @@
 
   ul.nav.nav-tabs(role='tablist')
     li(role='presentation')
-      a(href='#/speedtest/angularjs', aria-controls='angularjs', role='tab', data-toggle='tab') AngularJS
-    li(role='presentation', class="active")
-      a(href='#/speedtest/reactjs', aria-controls='reactjs', role='tab', data-toggle='tab') ReactJS
-      
+      a(href='#/speedtest/angular/1') AngularJS Test 1
+    li(role='presentation')
+      a(href='#/speedtest/angular/2') AngularJS Test 2
+    li(role='presentation')
+      a(href='#/speedtest/react/1') ReactJS Test 1
+    li(role='presentation')
+      a(href='#/speedtest/react/2') ReactJS Test 2
+
   br
   .tab-content
-      button.btn.btn-primary(ng-click="startTimer()") Start 
-      |  
-      button.btn.btn-danger(ng-click="stopTimer()") Stop
-      
-      br
-      br
-      div.speed-table#table1
-      div.speed-table#table2
-      div.speed-table#table3
-      div.speed-table#table4
-      div.speed-table#table5
+    div.speed-table#react
+      react-widget
