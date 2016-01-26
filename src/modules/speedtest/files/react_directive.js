@@ -18,10 +18,6 @@ var CommonMixins = {
 columns: columns,
 rows: rows,
 rgba: 255,
-      rgba1: create2DArray(columns),
-      rgba2: create2DArray(columns),
-      rgba3: create2DArray(columns),
-      cells: create2DArray(columns),
   create2DArray: create2DArray,
   getRandomNumber: getRandomNumber
 };
@@ -31,27 +27,49 @@ var Cell = React.createClass({
   getInitialState: function() {
     return {
       rndX: 0,
-      rndY: 0
+      rndY: 0,
+      x: 0,
+      y: 0,
+      keys: {
+        rgba1: create2DArray(columns),
+        rgba2: create2DArray(columns),
+        rgba3: create2DArray(columns),
+        cells: create2DArray(columns)
+      },
+      style: {}
     }
   },
   render: function() {
-    var x = this.props.x;
-    var y = this.props.y;
-    var rndX = this.getRandomNumber(this.columns);
-    var rndY = this.getRandomNumber(this.rows);
+    this.state.x = this.props.x;
+    this.state.y = this.props.y;
+    this.state.rndX = this.getRandomNumber(this.columns);
+    this.state.rndY = this.getRandomNumber(this.rows);
+    var x = this.state.x,
+        y = this.state.y,
+        rndX = this.state.rndX,
+        rndY = this.state.rndY;
+
+    var areKeys = Object.keys(this.state.keys).length > 0;
+    if (areKeys) {
+      var values = this.state.objects;
+      this.state.keys.cells[rndX][rndY] = this.props.objects.rndNum;  
+      this.state.keys.rgba1[rndX][rndY] = this.props.objects.rgba1Val;
+      this.state.keys.rgba2[rndX][rndY] = this.props.objects.rgba2Val;
+      this.state.keys.rgba3[rndX][rndY] = this.props.objects.rgba3Val; 
     
-    this.cells[rndX][rndY] = this.props.values.rndNum;    
-    this.rgba1[rndX][rndY] = this.props.values.rgba1Val;
-    this.rgba2[rndX][rndY] = this.props.values.rgba2Val;
-    this.rgba3[rndX][rndY] = this.props.values.rgba3Val;
-    
-    var style = {
-      backgroundColor: "rgba(" + this.rgba1[x][y] + "," + this.rgba2[x][y] + "," + this.rgba3[x][y] + "," + 1 + ")"
-    };
+      this.state.style = {
+        backgroundColor: "rgba(" + this.state.keys.rgba1[x][y] + "," + this.state.keys.rgba2[x][y] + "," + this.state.keys.rgba3[x][y] + "," + 1 + ")"
+      };
+    } else {
+      this.state.style = {
+        color: "white"
+      }
+    }
       
     return (
-    <div className="col-md-1 thumbnail inline-center" style={style}>
-      <div>{this.cells[x][y]}</div>
+    <div className="col-md-1 thumbnail inline-center" style={this.state.style} >
+      <div>
+        {areKeys ? this.state.keys.cells[x][y] : ''}</div>
       </div>
     )
   }
@@ -62,7 +80,7 @@ var Column = React.createClass({
   render: function() {
     var column = [];
     for (var i = 0; i < this.props.columns; i++) {
-      column.push(<Cell x={i} y={this.props.id} key={i} values={this.props.values} />);
+      column.push(<Cell x={i} y={this.props.id} key={i} objects={this.props.objects} />);
     }
     return (<div className="row">{column}</div>)
   }
@@ -73,7 +91,7 @@ var Row = React.createClass({
   render: function() {
     var row = [];
     for (var i = 0; i < this.props.rows; i++) {
-      row.push(<Column id={i} key={i} columns={this.props.columns} values={this.props.values} />);
+      row.push(<Column id={i} key={i} columns={this.props.columns} objects={this.props.objects} />);
     }
     return (<div>{row}</div>)
   }
@@ -82,7 +100,7 @@ var Row = React.createClass({
 var Grid = React.createClass({
   mixins: [ReactAddons.addons.PureRenderMixin],
   render: function() {
-    return (<div><Row rows={this.props.rows} columns={this.props.columns} values={this.props.values} /></div>)
+    return (<div><Row rows={this.props.rows} columns={this.props.columns} objects={this.props.objects} /></div>)
   }
 });
 
@@ -102,23 +120,22 @@ var Buttons = React.createClass({
 });
 
 var GridMixins = {
-
   getInitialState: function() {
     return {
       interval: {},
-        isInterval: false,
-    values: {}
+      isInterval: false,
+      objects: {}
     }
   },
   randomizeCells: function() {
     this.setState({
-    isInterval: true,
-    values: {
-    rndNum: this.getRandomNumber(this.rgba),
-    rgba1Val: this.getRandomNumber(this.rgba),
-    rgba2Val: this.getRandomNumber(this.rgba),
-    rgba3Val: this.getRandomNumber(this.rgba)
-    }
+      isInterval: true,
+      objects: {
+        rndNum: this.getRandomNumber(this.rgba),
+        rgba1Val: this.getRandomNumber(this.rgba),
+        rgba2Val: this.getRandomNumber(this.rgba),
+        rgba3Val: this.getRandomNumber(this.rgba)
+      }
     });
   },
   startTimer: function() {
@@ -140,7 +157,7 @@ var GridWrapper1 = React.createClass({
     return (
         <div>
         <Buttons start={this.startTimer} stop={this.stopTimer} isInterval={this.state.isInterval} /><br/>
-        <div className="grid"><Grid columns={this.columns} rows={this.rows} values={this.state.values} /></div>
+        <div className="grid"><Grid columns={this.columns} rows={this.rows} objects={this.state.objects} /></div>
         </div>
     )
   }
@@ -152,11 +169,11 @@ var GridWrapper1 = React.createClass({
       return (
         <div>
         <Buttons start={this.startTimer} stop={this.stopTimer} isInterval={this.state.isInterval} /><br/>
-        <div className="small-grid"><Grid columns={this.columns} rows={this.rows} values={this.state.values} /></div>
-        <div className="small-grid"><Grid columns={this.columns} rows={this.rows} values={this.state.values} /></div>
-        <div className="small-grid"><Grid columns={this.columns} rows={this.rows} values={this.state.values} /></div>
-        <div className="small-grid"><Grid columns={this.columns} rows={this.rows} values={this.state.values} /></div>
-        <div className="grid"><Grid columns={this.columns} rows={this.rows} values={this.state.values} /></div>
+        <div className="small-grid"><Grid columns={this.columns} rows={this.rows} objects={this.state.objects} /></div>
+        <div className="small-grid"><Grid columns={this.columns} rows={this.rows} objects={this.state.objects} /></div>
+        <div className="small-grid"><Grid columns={this.columns} rows={this.rows} objects={this.state.objects} /></div>
+        <div className="small-grid"><Grid columns={this.columns} rows={this.rows} objects={this.state.objects} /></div>
+        <div className="grid"><Grid columns={this.columns} rows={this.rows} objects={this.state.objects} /></div>
         </div>
       )
     }
