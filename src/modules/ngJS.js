@@ -2,6 +2,7 @@ define([
   "angular", 
   "common/main", 
   "home/main", 
+  "todolist/main", 
   "poem/main", 
   "article/main", 
   "speedtest/main"], 
@@ -16,6 +17,7 @@ define([
       "ngSanitize",
       "ngJS.common", 
       "ngJS.home", 
+      "ngJS.todolist",
       "ngJS.poem", 
       "ngJS.article", 
       "ngJS.speedtest"
@@ -48,8 +50,8 @@ define([
         urlRouterProvider.when("", "/home");
         urlRouterProvider.otherwise("/error/404");
 
-        logProvider.debugEnabled(false);
-        compileProvider.debugInfoEnabled(false);
+        logProvider.debugEnabled(true);
+        compileProvider.debugInfoEnabled(true);
         httpProvider.useApplyAsync(true);
       }
     ]);
