@@ -39,6 +39,9 @@ define([], function() {
         scope.inputVal = '';
       }
     };
+    scope.remove = function(index) {
+      item.remove(index);
+    };
     scope.update = function(index) {
         item.setDone(index, scope.checkbox);
         console.log(scope.checkbox);

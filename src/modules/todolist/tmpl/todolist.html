@@ -1,11 +1,20 @@
 <div class="default-container form-inline">
-    <ul>
-        <li ng-repeat="item in items track by $index">
-            <input type="checkbox" ng-model="item.checked"> <span ng-class="{'crossed': item.checked}">{{item.value}}</span>
-        </li>
-        <li>
-            <item></item>
-        </li>
-    </ul>
+    <div ng-repeat="item in items track by $index">
+        <input type="checkbox" ng-model="item.checked" class="form-control"> 
+    	<input 
+    		class="form-control"
+    		ng-init="disabled=true"
+    		ng-class="{'crossed': item.checked, 'disabled': disabled}" 
+    		type="text"
+    		ng-model="item.value" 
+    		ng-focus="disabled=false"
+    		ng-blur="disabled=true"
+		>
+        <button ng-click="remove($index)" class="btn btn-danger">X</button>
+    </div>
+    <div>
+        <item></item>
+    </div>
+    <br/><br/>
     <pre>{{items | json}}</pre>
 </div>
