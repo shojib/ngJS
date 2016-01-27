@@ -7,10 +7,13 @@ define([], function() {
   		templateUrl: "./modules/speedtest/tmpl/angular_directive.html",
   		link: function(scope) {
   			var startInterval = {},
+  				cols = 31,
+  				rows = 51,
+  				rndNum = 255,
   				angularService = new AngularService();
   			angularService.init();
-		  	scope.rows = angularService.populateArray(51);
-		  	scope.columns = angularService.populateArray(31);
+		  	scope.rows = angularService.populateArray(rows);
+		  	scope.columns = angularService.populateArray(cols);
 		    scope.cell = angularService.getCell();
 		    scope.rgba1 = angularService.getRgba1();
 		    scope.rgba2 = angularService.getRgba2();
@@ -20,12 +23,12 @@ define([], function() {
 			var runInterval = function() {
 		      return interval(function() {
 		        log.debug("start timer");
-		        var rndCols = angularService.getRandomNumber(31);
-		        var rndRows = angularService.getRandomNumber(51);
-		        scope.cell[rndCols][rndRows] =  angularService.getRandomNumber(255);
-		        scope.rgba1[rndCols][rndRows] =  angularService.getRandomNumber(255);
-		        scope.rgba2[rndCols][rndRows] =  angularService.getRandomNumber(255);
-		        scope.rgba3[rndCols][rndRows] =  angularService.getRandomNumber(255);
+		        var rndCols = angularService.getRandomNumber(cols);
+		        var rndRows = angularService.getRandomNumber(rows);
+		        scope.cell[rndCols][rndRows] =  angularService.getRandomNumber(rndNum);
+		        scope.rgba1[rndCols][rndRows] =  angularService.getRandomNumber(rndNum);
+		        scope.rgba2[rndCols][rndRows] =  angularService.getRandomNumber(rndNum);
+		        scope.rgba3[rndCols][rndRows] =  angularService.getRandomNumber(rndNum);
 		      }, 0);   
 		    }; 
 

@@ -1,26 +1,28 @@
 define(['react', 'reactDom', 'reactAddons'], function(React, ReactDOM, ReactAddons) {
   "use strict";
   
-  var columns = 31, rows = 51;
-var create2DArray = function(num) {
-    var obj = [];
-    for (var i = 0; i < num; i++) {
-      obj[i] = [];
-    }
-    return obj;
-  };
-  
-  var getRandomNumber = function(num) {
-    return Math.floor((Math.random() * num) + 0);
+  var columns = 31,
+      rows = 51;
+  var create2DArray = function(num) {
+      var obj = [];
+      for (var i = 0; i < num; i++) {
+          obj[i] = [];
+      }
+      return obj;
   };
 
-var CommonMixins = {
-columns: columns,
-rows: rows,
-rgba: 255,
-  create2DArray: create2DArray,
-  getRandomNumber: getRandomNumber
-};
+  var getRandomNumber = function(num) {
+      return Math.floor((Math.random() * num) + 0);
+  };
+
+  var CommonMixins = {
+      columns: columns,
+      rows: rows,
+      rgba: 255,
+      create2DArray: create2DArray,
+      getRandomNumber: getRandomNumber
+  };
+
 
 var Cell = React.createClass({
   mixins: [CommonMixins, ReactAddons.addons.PureRenderMixin],
