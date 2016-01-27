@@ -15,7 +15,7 @@ define(["angular", "todolist/files/directive", "todolist/files/controller"],
     }
   ]);
 
-  TodoList.directive("itemWidget", directive);
+  TodoList.directive("item", directive);
   TodoList.controller("controller", controller);
 
   return TodoList;

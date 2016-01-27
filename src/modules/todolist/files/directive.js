@@ -4,12 +4,7 @@ define([], function() {
   var Directive = function() {
     return {
       restrict: "E",
-      scope: {
-        checkbox: "="
-      },
-      templateUrl: "./modules/todolist/tmpl/item.html",
-      link: function(scope) {
-      }
+      templateUrl: "./modules/todolist/tmpl/item.html"
     }
   };
   return Directive;

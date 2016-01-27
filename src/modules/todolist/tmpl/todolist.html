@@ -1,4 +1,11 @@
 <div class="default-container form-inline">
-    <item-widget checkbox="false"></item-widget>
+    <ul>
+        <li ng-repeat="item in items track by $index">
+            <input type="checkbox" ng-model="item.checked"> <span ng-class="{'crossed': item.checked}">{{item.value}}</span>
+        </li>
+        <li>
+            <item></item>
+        </li>
+    </ul>
+    <pre>{{items | json}}</pre>
 </div>
-<h1>: {{output}}</h1>
