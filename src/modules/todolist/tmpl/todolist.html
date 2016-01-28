@@ -1,20 +1,29 @@
 <div class="default-container form-inline">
-    <div ng-repeat="item in items track by $index">
-        <input type="checkbox" ng-model="item.checked" class="form-control"> 
+    <h1>todos</h1>
+    <br/><br/>
+    <div ng-repeat="item in items track by item.id" ng-init="inputState=true;rmState=true">
+        <input type="checkbox" ng-model="item.checked" ng-change="update()" class="form-control">
     	<input 
     		class="form-control"
-    		ng-init="disabled=true"
-    		ng-class="{'crossed': item.checked, 'disabled': disabled}" 
+    		ng-class="{'crossed': item.checked, 'disabled': inputState}" 
     		type="text"
     		ng-model="item.value" 
-    		ng-focus="disabled=false"
-    		ng-blur="disabled=true"
+    		ng-focus="inputState=false"
+    		ng-blur="inputState=true"
+            ng-mouseover="rmState=false"
+            ng-mouseleave="rmState=true"
 		>
-        <button ng-click="remove($index)" class="btn btn-danger">X</button>
+        <button ng-hide="false" ng-click="remove(item.id)" class="btn btn-default btn-sm">X</button>
     </div>
-    <div>
-        <item></item>
-    </div>
+    <item class="block-tag"></item>
     <br/><br/>
+    <div ng-init="itemsBtn=0">
+        <button class="btn btn-default" ng-class="{'active': itemsBtn==0}" ng-click="itemsBtn=0;getAllItems()">All</button>
+        <button class="btn btn-default" ng-class="{'active': itemsBtn==1}" ng-click="itemsBtn=1;getActive()">Active</button>
+        <button class="btn btn-default" ng-class="{'active': itemsBtn==2}" ng-click="itemsBtn=2;getCompleted()">Completed</button>
+    </div>
+    <br/>
+    <p ng-if="itemSize>0">{{itemSize}} item<span ng-if="itemSize>1">s</span> left</p>
+    <br/>
     <pre>{{items | json}}</pre>
 </div>

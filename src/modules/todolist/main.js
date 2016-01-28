@@ -1,5 +1,5 @@
-define(["angular", "todolist/files/directive", "todolist/files/controller"], 
-  function(angular, directive, controller) {
+define(["angular", "todolist/files/service", "todolist/files/directive", "todolist/files/controller"], 
+  function(angular, service, directive, controller) {
 
   "use strict";
   
@@ -15,8 +15,9 @@ define(["angular", "todolist/files/directive", "todolist/files/controller"],
     }
   ]);
 
+  TodoList.service("Item", service);
   TodoList.directive("item", directive);
-  TodoList.controller("controller", controller);
+  TodoList.controller("Ctrl", controller);
 
   return TodoList;
 
