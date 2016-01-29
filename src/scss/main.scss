@@ -43,10 +43,18 @@ a {
   text-decoration: line-through;
 }
 
+.block-tag {
+  display: block;
+}
+
+input.disabled {
+  background-color: #F1F1F1;
+  border: 0;
+  box-shadow: none;
+}
+
 .container {
   position: relative;
-  width: 1000px;
-  padding: 0px 70px;
   color: $color;
   font-family: $font-family; 
 
