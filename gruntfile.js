@@ -86,6 +86,14 @@ module.exports = function(grunt) {
       }
     },
 
+    browserify: {
+      dist: {
+        files: {
+          '<%= pkg.folders.build %>/modules/ngjs.min.js': ['<%= pkg.folders.src %>/modules/ngjs.js']
+        }
+      }
+    },
+
 
     watch: {
       react: {
@@ -165,6 +173,7 @@ module.exports = function(grunt) {
   });
 
   // Load the plugins for all the tasks.
+  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -203,7 +212,7 @@ module.exports = function(grunt) {
     'clean', 
     'copy', 
     'compass',
-    'react'
+    'browserify'
   ]);
   
   // Build task(s).

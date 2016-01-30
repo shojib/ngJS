@@ -1,7 +1,6 @@
-define([], function() {
-  "use strict";
- 
- var Service = function(factory) {
+'use strict';
+
+var Service = function(factory) {
     return {
       find_articles: function(query) {
         return factory.get({
@@ -9,11 +8,8 @@ define([], function() {
         }).$promise;
       }
     };
-  };
+};
 
-  Service.$inject = ["factory"];
-  return Service;
-  
-});
+Service.$inject = ["factory"];
 
-
+module.exports = Service;

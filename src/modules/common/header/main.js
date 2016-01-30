@@ -1,12 +1,14 @@
-  define(["angular", "common/header/files/directive"], function(angular, directive) {
-    "use strict";
-    
-    var Header = angular.module("ngJS.header", []);
-    
-    Header.directive("ngjsHeader", directive);
-    
-    return Header;
+var Header = angular.module("ngJS.header", []);
 
-  });
+var HeaderDirective = function() {
+    return {
+      restrict: "E",
+      replace: true,
+      templateUrl: "./modules/common/header/tmpl/header.html"
+    };
+};
+
+    
+Header.directive("ngjsHeader", HeaderDirective);
 
 

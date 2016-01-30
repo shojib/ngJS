@@ -1,21 +1,16 @@
-define(["angular", "poem/files/controller"], function(angular, controller) {
-  "use strict";
+var Ctrl = require('./files/controller');
   
-  var Poem = angular.module("ngJS.poem", ["ui.router"]);
-  
-  Poem.config([
-    "$stateProvider", function(state_provider) {
-      return state_provider.state("poem", {
-        url: "/poem",
-        templateUrl: "./modules/poem/tmpl/poem.html",
-        controller: controller
-      });
-    }
-  ]);
+var Poem = angular.module('ngJS.poem', ['ui.router']);
 
-  Poem.controller("controller", controller);
-  return Poem;
-
-});
+Poem.config([
+  '$stateProvider', function(state_provider) {
+    return state_provider.state('poem', {
+      url: '/poem',
+      templateUrl: './modules/poem/tmpl/poem.html',
+      controller: Ctrl
+    });
+  }
+]);
 
 
+Poem.controller('Ctrl', Ctrl);

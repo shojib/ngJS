@@ -1,6 +1,10 @@
-define(['react', 'reactDom', 'reactAddons'], function(React, ReactDOM, ReactAddons) {
-  "use strict";
-  
+'use strict';
+
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+
   var columns = 31,
       rows = 51;
   var create2DArray = function(num) {
@@ -25,7 +29,7 @@ define(['react', 'reactDom', 'reactAddons'], function(React, ReactDOM, ReactAddo
 
 
 var Cell = React.createClass({
-  mixins: [CommonMixins, ReactAddons.addons.PureRenderMixin],
+  mixins: [CommonMixins, PureRenderMixin],
   getInitialState: function() {
     return {
       rndX: 0,
@@ -78,7 +82,7 @@ var Cell = React.createClass({
 });
 
 var Column = React.createClass({
-  mixins: [ReactAddons.addons.PureRenderMixin],
+  mixins: [PureRenderMixin],
   render: function() {
     var column = [];
     for (var i = 0; i < this.props.columns; i++) {
@@ -89,7 +93,7 @@ var Column = React.createClass({
 });
 
 var Row = React.createClass({
-  mixins: [ReactAddons.addons.PureRenderMixin],
+  mixins: [PureRenderMixin],
   render: function() {
     var row = [];
     for (var i = 0; i < this.props.rows; i++) {
@@ -100,14 +104,14 @@ var Row = React.createClass({
 });
 
 var Grid = React.createClass({
-  mixins: [ReactAddons.addons.PureRenderMixin],
+  mixins: [PureRenderMixin],
   render: function() {
     return (<div><Row rows={this.props.rows} columns={this.props.columns} objects={this.props.objects} /></div>)
   }
 });
 
 var Buttons = React.createClass({
-  mixins: [ReactAddons.addons.PureRenderMixin],
+  mixins: [PureRenderMixin],
   render: function() {
   console.log(this.props.isInterval);
     return (
@@ -154,7 +158,7 @@ var GridMixins = {
 };
 
 var GridWrapper1 = React.createClass({
-  mixins: [CommonMixins, GridMixins, ReactAddons.addons.PureRenderMixin],
+  mixins: [CommonMixins, GridMixins, PureRenderMixin],
   render: function() {    
     return (
         <div>
@@ -166,7 +170,7 @@ var GridWrapper1 = React.createClass({
 });
 
   var GridWrapper2 = React.createClass({
-    mixins: [CommonMixins, GridMixins, ReactAddons.addons.PureRenderMixin],
+    mixins: [CommonMixins, GridMixins, PureRenderMixin],
     render: function() {
       return (
         <div>
@@ -220,8 +224,5 @@ var GridWrapper1 = React.createClass({
 
   Directive.$inject = ["$log", "$stateParams"];
   
-  return Directive;
-
-});
-
+  module.exports = Directive;
 

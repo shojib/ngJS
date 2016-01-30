@@ -57,6 +57,7 @@ input.disabled {
   position: relative;
   color: $color;
   font-family: $font-family; 
+  width: 875px;
 
   h3, h5 {
     font-weight: bold;
@@ -98,7 +99,6 @@ input.disabled {
 
   .row {
       margin-left: 0; 
-      margin-right: 0; 
   }
   
   .row:last-child .thumbnail {

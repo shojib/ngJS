@@ -1,12 +1,16 @@
-  define(["angular", "common/footer/files/directive"], function(angular, directive) {
-    "use strict";
-    
-    var Footer = angular.module("ngJS.footer", []);
-    
-    Footer.directive("ngjsFooter", directive);
-    
-    return Footer;
+var Footer = angular.module("ngJS.footer", []);
 
-  });
+var FooterDirective = function() {
+  return {
+    restrict: "E",
+    templateUrl: "./modules/common/footer/tmpl/footer.html",
+    link: function(scope) {
+      var currentYear = new Date().getFullYear();       
+      scope.copyrightYears = currentYear > 2015 ? 2015 + '-' + currentYear : 2015;
+    }
+  };
+};
+
+Footer.directive("ngjsFooter", FooterDirective);
 
 

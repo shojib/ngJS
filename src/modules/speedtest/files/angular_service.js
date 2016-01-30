@@ -1,9 +1,7 @@
-define([], function() {
-  "use strict";
+'use strict';  
 
-  var Service = function() {
 
-  	var AngularService = function() {
+  	var Service = function() {
   		this.rows = []; 
         this.columns = []; 
         this.cell = [];
@@ -14,7 +12,7 @@ define([], function() {
         this.rgba2 = 0;
         this.rgba3 = 0;
   	};
-  	AngularService.prototype = {
+  	Service.prototype = {
   		init: function() {
 		    this.cell = this.create2DArray(31);
 		    this.rgba1 = this.create2DArray(255);
@@ -58,10 +56,4 @@ define([], function() {
 	    }
   	};
 
-  	return AngularService;
-
-  };
-  
-  return Service;
-
-});
+	module.exports = Service;

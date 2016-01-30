@@ -1,26 +1,17 @@
-define(["angular", "todolist/files/service", "todolist/files/directive", "todolist/files/controller"], 
-  function(angular, service, directive, controller) {
+var Directive = require('./files/directive'); 
+var Ctrl = require('./files/controller');
 
-  "use strict";
-  
-  var TodoList = angular.module("ngJS.todolist", ["ui.router", "ngAnimate", "ngResource"]);
-  
-  TodoList.config([
-    "$stateProvider", function(stateProvider) {
-      stateProvider.state("todolist", {
-        url: "/todolist",
-        templateUrl: "./modules/todolist/tmpl/todolist.html",
-        controller: controller
-      });
-    }
-  ]);
+var TodoList = angular.module('ngJS.todolist', ['ui.router', 'ngAnimate']);
 
-  TodoList.service("Item", service);
-  TodoList.directive("item", directive);
-  TodoList.controller("Ctrl", controller);
+TodoList.config([
+  '$stateProvider', function(stateProvider) {
+    stateProvider.state('todolist', {
+      url: '/todolist',
+      templateUrl: './modules/todolist/tmpl/todolist.html',
+      controller: Ctrl
+    });
+  }
+]);
 
-  return TodoList;
-
-});
-
-
+TodoList.directive('item', Directive);
+TodoList.controller('Ctrl', Ctrl);
